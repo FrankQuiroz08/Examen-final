@@ -1,0 +1,89 @@
+---
+title: "Examen parcial"
+author: "FrankQuirozRamirez"
+date: "10/12/2021"
+output: "github_document"
+long: es-ES
+---
+# Examen parcial 
+# Parte 1
+## Pregunta 1
+```{r}
+angulo <- function(m1,m2){
+  if(m1 == m2){
+    return(0)
+  }else{
+    y= m2-m1
+    x = 1+m1*m2
+    tita =  atan(y/ x)
+    return(tita)
+  }
+}
+angulo(1,2)
+```
+## Pregunta 2
+```{r}
+
+```
+
+# Parte 2
+
+## Pregunta 1
+```{r}
+df=read.csv("kc_house_data (1).csv")
+head(df)
+```
+```{r}
+summary(df$price)
+var(df$price)
+par(mfrow=c(1,2))
+boxplot(df$price)
+hist(df$price)
+```
+Nota: La media de los datos es 540088 , la mediana 450000 y la varianza 134782378397, los datos de "price" tienen valores atipicos y su histograma presenta una distribucion sesgada hacia la derecha.
+
+Regresion lineal
+
+```{r}
+df1 = df[,c(-1,-2)]
+fit = lm(price ~.,data=na.omit(df1))
+summary(fit)
+```
+## Pregunta 3
+
+### a
+```{r}
+df2= read.csv("dataset-fruits.csv")
+head(df2)
+str(df2)
+```
+
+```{r}
+colnames(df2)
+```
+### b
+```{r}
+colnames(df2)
+```
+
+### c
+```{r}
+library(dplyr)
+df2 %>%
+  group_by(pais_origen) %>%
+  summarise( maximototal = max(totales,na.rm = T))
+```
+
+### d
+```{r}
+boxplot(df2$totales ~ df2$pais_origen  )
+```
+
+### e
+```{r}
+df3 <- df2 %>% filter(pais_origen=="Chile")
+boxplot(df3$totales ~ df3$producto)
+```
+## Pregunta 4
+
+
