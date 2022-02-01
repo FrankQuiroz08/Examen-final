@@ -1,0 +1,30 @@
+---
+title: "examen final"
+author: "FrankQuirozRamirez"
+date: "1/2/2022"
+output: html_document
+---
+
+```{r}
+#Que es leaflet?
+#Leaflet es una libreria de javascrip que es 
+#ampliamente utilzada para la creacion de mapas en la web.
+#Su sencillez y falicidad para su manejo es lo que la convierte 
+#en una buena herramienta para empezar a trabajar con mapas.
+
+#Presenta las siguientes caracteristicas:
+#se puede vincular con GIS, se puede crear mapas geograficos, 
+#mapas interactivos con zoom, entre otros mas.
+#Se instala con install.packages("leaflet")
+
+#Tambien se pueden observar los wodget de mapas, los mapas base,
+#marcadores y etiquetas, entre otros mas.
+#esta paqueteria admite distintas formas de datos espaciales 
+#como base R, paquetes sp o desde el paquete de mapas
+
+library(leaflet)
+leaflet(options=leafletOptions(minZoom = 0, maxZoom = 18))
+leaflet() %>% addTiles()
+leaflet() %>% addTiles()%>% addMarkers(lng=174.768,lat = -36.852) 
+```
+
